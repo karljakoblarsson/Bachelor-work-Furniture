@@ -6,12 +6,15 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-title: Bachelor-work-Furniture
-email: your-email@domain.com
+title: Photorealistic Rendering of Furniture
+email: k.jakob.larsson@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+
+  This is our diary while working on our bachelors's thesis at Chalmers
+  University of Technology.  We are working on three related
+  problems in creating photrealistic renders of furniture, with a focus on
+  cloth and woven materials.
+
 baseurl: "/Bachelor-work-Furniture" # the subpath of your site, e.g. /blog
 url: "http://karljakoblarsson.com/" # the base hostname & protocol for your site
 
