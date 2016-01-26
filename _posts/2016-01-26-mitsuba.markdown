@@ -48,7 +48,9 @@ This method is used to set material parameters and to make sure that the reflect
 
 ###Components
 
-A BSDF can consist of several components. The smooth dielectric BSDF in Mitsuba is an example of a BSDF with more than one component. When light reaches this material it will be either reflected off the surface or transmitted trough it, see the image below . As such, the BSDF contains two components, one describing the reflection and one describing the transmission.
+A BSDF can consist of several components. The `plastic` BSDF in Mitsuba is an example of a BSDF with more than one component. When light reaches this material it will either be scattered diffusely or reflected specularly, see the image below. As such, the BSDF contains two components, one describing the diffuse scattering and one describing the specular reflection.
+
+![Plastic shader with diffuse and specular components]({{ site.baseurl }}/assets/clothshader/2016-01-26-plastic.png)
 
 `m_components` is a list of flags for each component of the BSDF, that describes the type of the component.
 For instance, a component can be flagged as describing diffuse reflection or glossy transmission. The purpose of these is to allow the artist to filter out specific types of materials when rendering.
