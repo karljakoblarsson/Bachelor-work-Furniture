@@ -1,0 +1,7 @@
+---
+layout: post
+title:  "Test Post"
+date:   2016-01-25 11:47:33 +0100
+categories: delprojekttest
+---
+Test post!
