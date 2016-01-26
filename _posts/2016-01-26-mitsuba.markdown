@@ -73,8 +73,8 @@ And lastly a method to return a string representation of the shader together wit
 
 As a test we created a simple bsdf shader for mitsuba and used the provided implementation of the SmoothDiffuse shader as a reference. The result can be seen below.
 
-![Cornell box using a normal SmoothDiffuse shader]({{ site.url }}/assets/clothshader/2016-01-26-cbox.png)
-![Cornell box using a our modified Striped shader]({{ site.url }}/assets/clothshader/2016-01-26-cboxstripes.png)
+![Cornell box using a normal SmoothDiffuse shader]({{ base.url }}/assets/clothshader/2016-01-26-cbox.png)
+![Cornell box using a our modified Striped shader]({{ base.url }}/assets/clothshader/2016-01-26-cboxstripes.png)
 
 
 \begin{equation}
