@@ -1,0 +1,88 @@
+---
+layout: post
+title:  "Mitsuba!"
+author:  Peter & Vidar
+date:   2016-01-26 09:29:54 +0100
+categories: clothshader
+---
+
+Our main hope is to get a shader implmented in V-ray. But after a bit of looking  we realized that working with Vray is a bit involved. Instead, as a start, we will try to use [Mitsuba][mitsuba] during the research and development phase since it is more academic and the source code is available and well documented. The public API can be found [here][mitsuba-api]
+
+As a first step we thought that investigating how Mitsuba shaders are implemented would be a good method of getting aquainted with the software. 
+
+The shaders are part of the mitsuba source code and are stored in the `src/bsdfs/` directory. To modify or add a new shader, the mitsuba project will need to be recompiled.
+
+Our goal is to write a custom Bidirectional Scattering Distribution Funcion (BSDF), which is a function \\(f_r(\vec{x}, \omega_i,\omega_o)\\) that describes the amount of light reflected from an incident direction \\(\omega_i\\) in an outgoing direction \\(\omega_o\\).
+
+###Methods
+
+The implementation of a custom BSDF in Mitsuba consists of creating a new subclass of type BSDF and overriding some of the virtual methods. 
+There are four methods that are of main importance. 
+
+{% highlight c++ %}
+Spectrum eval(const BSDFSamplingRecord &bRec, EMeasure measure);
+{% endhighlight %}
+This method evaluates the function \\(f_r(\vec{x}, \omega_i, \omega_o)\\) when both \\(\omega_i\\) and \\(\omega_o\\) are known. The provided parameter bRec is of type [BSDFSamplingRecord][BSDFSamplingRecord] and provides ray information such as the point of intersection, \\(\vec{x}\\) (in different coordinate systems) and incident and outgoing ray directions.
+
+{% highlight c++ %}
+Spectrum sample(BSDFSamplingRecord &bRec, const Point2 &sample);
+Spectrum sample(BSDFSamplingRecord &bRec, Float &pdf, const Point2 &sample);
+{% endhighlight %}
+Given an outgoing direction \\(\omega_o\\), these methods will sample a random incident direction \\(\omega_i\\) from the unit sphere surrounding the current shading point \\(\vec{x}\\) according to the BSDF, and evaluate \\(f(\vec{x},\omega_i,\omega_o)\\).
+
+The difference between the two versions of `sample` is that the first one returns the value \\(f(\vec{x},\omega_i,\omega_o) / p(\omega_i|\vec{x},\omega_o)\\) where \\(p(\omega_i|\vec{x},\omega_o)\\) is the probability density function (PDF) for sampling the direction \\(\omega_i\\) given \\(\vec{x}\\) and \\(\omega_o\\). The second version of `sample` returns just the value of \\(f\\) and sets the parameter `pdf` to the value of \\(p\\).
+The reason for having two different methods is that most rendering algorithms just use the value of \\(f/p\\), and returning the fraction means that for certain BSDFs the first sample method can be optimized somewhat.
+
+{% highlight c++ %}
+Float pdf(const BSDFSamplingRecord &bRec, EMeasure measure);
+{% endhighlight %}
+Computes the value \\(p(\omega_i\|\vec{x},\omega_o)\\), i.e the PDF of sampling \\(\omega_i\\) given a shading point \\(\vec{x}\\) and outgoing direction \\(\omega_o\\) using the `sample` method described above.
+
+
+Additionally there are a few other methods that should be implemented in a Mitsuba shader.
+
+{% highlight c++ %}
+void configure();
+{% endhighlight %}
+This method is used to set material parameters and to make sure that the reflectance is not set to high and tells Mistuba what type of interactions will be performed (called components) using the m_components variable.
+
+###Components
+
+A BSDF can consist of several components. The smooth dielectric BSDF in Mitsuba is an example of a BSDF with more than one component. When light reaches this material it will be either reflected off the surface or transmitted trough it, see the image below . As such, the BSDF contains two components, one describing the reflection and one describing the transmission.
+
+`m_components` is a list of flags for each component of the BSDF, that describes the type of the component.
+For instance, a component can be flagged as describing diffuse reflection or glossy transmission. The purpose of these is to allow the artist to filter out specific types of materials when rendering.
+
+{% highlight c++ %}
+void serialize(Stream *stream) const {
+{% endhighlight %}
+The serialize method is, for us, still a bit unclear for what it is used for. We speculate it might be used to save the running program instance to disk or perhaps used with mitsubas networking capabilities.
+
+{% highlight c++ %}
+void addChild(const std::string &name, ConfigurableObject *child) {
+{% endhighlight %}
+We do not know what this does.
+
+{% highlight c++ %}
+std::string toString() const {
+{% endhighlight %}
+And lastly a method to return a string representation of the shader together with any property-values
+
+
+###Test
+
+As a test we created a simple bsdf shader for mitsuba and used the provided implementation of the SmoothDiffuse shader as a reference. The result can be seen below.
+
+![Cornell box using a normal SmoothDiffuse shader]({{ site.url }}/assets/clothshader/2016-01-26-cbox.png)
+![Cornell box using a our modified Striped shader]({{ site.url }}/assets/clothshader/2016-01-26-cboxstripes.png)
+
+
+\begin{equation}
+\label{test}
+ \sum^n_k x^k
+\end{equation} test
+
+
+[mitsuba]: http://www.mitsuba-renderer.org/
+[mitsuba-api]: http://www.mitsuba-renderer.org/api/
+[BSDFSamplingRecord]: http://www.mitsuba-renderer.org/api/structmitsuba_1_1_b_s_d_f_sampling_record.html
