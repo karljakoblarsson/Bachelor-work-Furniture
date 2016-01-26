@@ -81,3 +81,15 @@ As a test we created a simple bsdf shader for mitsuba and used the provided impl
 [mitsuba]: http://www.mitsuba-renderer.org/
 [mitsuba-api]: http://www.mitsuba-renderer.org/api/
 [BSDFSamplingRecord]: http://www.mitsuba-renderer.org/api/structmitsuba_1_1_b_s_d_f_sampling_record.html
+
+
+###Reading list
+Our next step is to gather some more knowledge on the topic of BSDFs and cloth shaders. We have compiled the following list of material that we want to read before continuing with the programming.
+
+* [Course notes: Background: Physics and Math of Shading](http://blog.selfshadow.com/publications/s2013-shading-course/hoffman/s2013_pbs_physics_math_notes.pdf)
+* [Understanding the Masking-Shadowing Function in Microfacet-Based BRDFs](https://hal.inria.fr/hal-00942452v1/document)
+* [Specular Reflection from Woven Cloth](https://www.cs.cornell.edu/~srm/publications/TOG12-cloth.html)
+* [CS 348b Final Project: Cloth Rendering](https://graphics.stanford.edu/wikis/cs348b-09/lfyg/Final_Project_Writeup)
+* [Structure-aware Synthesis for Predictive Woven Fabric Appearance](https://www.mitsuba-renderer.org/~wenzel/papers/ctcloth-sg12.pdf)
+* [A Practical Microcylinder Appearance Model for Cloth Rendering](http://graphics.ucsd.edu/~henrik/papers/practical_microcylinder_appearance_model_for_cloth_rendering.pdf)
+
