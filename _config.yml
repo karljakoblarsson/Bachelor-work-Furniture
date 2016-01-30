@@ -19,6 +19,11 @@ description: > # this means to ignore newlines until "baseurl:"
 
 baseurl: "/Bachelor-work-Furniture" # the subpath of your site, e.g. /blog
 url: "http://karljakoblarsson.com/" # the base hostname & protocol for your site
+gems:
+  - jekyll-archives
+jekyll-archives:
+  enabled: [categories]
+  layout: 'archive'
 
 # Build settings
 markdown: kramdown

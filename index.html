@@ -3,21 +3,38 @@ layout: default
 ---
 
 <div class="home">
+  <div class="posts-wrapper">
+    <h1 class="page-heading">Posts</h1>
 
-  <h1 class="page-heading">Posts</h1>
+    <ul class="post-list">
+      {% for post in site.posts %}
+        <li>
+          <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}
+          - {{post.author}} -
+          {% for category in post.categories %}
+            <a href="{{ prepend: site.baseurl}}/category/{{category}}">{{category}}<a>
+          {% endfor %}  
+          </span>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
+          <h2>
+            <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+          </h2>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  
+  <div class="categories-wrapper">
+    <h1 class="page-heading">Categories</h1>
+    <ul class"category-list">
+      {% for category in site.categories %}
+        <li>
+          <a href="{{ prepend: site.baseurl}}/category/{{category | first}}">{{category | first}}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  
   <!--<p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>-->
 
 </div>
