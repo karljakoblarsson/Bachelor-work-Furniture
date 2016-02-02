@@ -2,7 +2,7 @@
 layout: post
 title:  "Weaving!"
 author:  Vidar & Peter
-date:   2016-01-30 09:29:54 +0100
+date:   2016-02-02 13:04:03 +0100
 categories: clothshader
 ---
 
@@ -14,7 +14,7 @@ An important feature of our shader will be the ability to read the same input da
 
 While reading the file format is straight forward, since the data is intended for looms, interpreting it is a bit involved. [This](https://www.youtube.com/watch?v=j18XHzZ6Mb8) youtube video helped us understand how to read weaving drafts. 
 
-We started by writing a small program that reads a .WIF file and prints the pattern to the console using ascii, here's an example of the output for [this](http://www.handweaving.net/draft-detail/41753) pattern:
+We started by writing a [small utility](https://github.com/vidarn/cloth-shader/tree/master/wif) that reads a .WIF file and prints the pattern to the console using ascii, here's an example of the output for [this](http://www.handweaving.net/draft-detail/41753) pattern:
 
     X   X     X X   X     X X   X     X X   X     X 
      X X     X   X X     X   X X     X   X X     X  
