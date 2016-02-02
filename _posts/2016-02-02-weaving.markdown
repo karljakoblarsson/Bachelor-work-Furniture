@@ -1,0 +1,56 @@
+---
+layout: post
+title:  "Weaving!"
+author:  Vidar & Peter
+date:   2016-01-30 09:29:54 +0100
+categories: clothshader
+---
+
+# Weaving data
+
+![A loom. The tool used to create weaved fabrics!](http://www.laplatafarms.com/weaving/images/Flip15_Neutral.jpg)
+
+An important feature of our shader will be the ability to read the same input data as an industrial loom uses to weave fabrics. The industry standard file format for weaving patterns is .WIF, a simple ascii format resembling windows .ini files.
+
+While reading the file format is straight forward, since the data is intended for looms, interpreting it is a bit involved. [This](https://www.youtube.com/watch?v=j18XHzZ6Mb8) youtube video helped us understand how to read weaving drafts. 
+
+We started by writing a small program that reads a .WIF file and prints the pattern to the console using ascii, here's an example of the output for [this](http://www.handweaving.net/draft-detail/41753) pattern:
+
+    X   X     X X   X     X X   X     X X   X     X 
+     X X     X   X X     X   X X     X   X X     X  
+      X     X     X     X     X     X     X     X   
+       X   X X     X   X X     X   X X     X   X X  
+        X X   X     X X   X     X X   X     X X   X 
+         X     X     X     X     X     X     X     X
+    X   X X     X   X X     X   X X     X   X X     
+     X X   X     X X   X     X X   X     X X   X    
+      X     X     X     X     X     X     X     X   
+     X     X X   X     X X   X     X X   X     X X  
+    X     X   X X     X   X X     X   X X     X   X 
+         X     X     X     X     X     X     X     X
+    X   X     X X   X     X X   X     X X   X     X 
+     X X     X   X X     X   X X     X   X X     X  
+      X     X     X     X     X     X     X     X   
+       X   X X     X   X X     X   X X     X   X X  
+        X X   X     X X   X     X X   X     X X   X 
+         X     X     X     X     X     X     X     X
+    X   X X     X   X X     X   X X     X   X X     
+     X X   X     X X   X     X X   X     X X   X    
+      X     X     X     X     X     X     X     X   
+     X     X X   X     X X   X     X X   X     X X  
+    X     X   X X     X   X X     X   X X     X   X 
+         X     X     X     X     X     X     X     X
+    X   X     X X   X     X X   X     X X   X     X 
+     X X     X   X X     X   X X     X   X X     X  
+      X     X     X     X     X     X     X     X   
+       X   X X     X   X X     X   X X     X   X X  
+        X X   X     X X   X     X X   X     X X   X 
+         X     X     X     X     X     X     X     X
+
+    
+Our next step was to use this data in a Mitsuba shader to get the correct pattern on a surface. We felt that this would be a good first step towards implementing the complete cloth shader.
+We based our shader on the default SmoothDiffuse BRDF in Mitsuba and using the data from the WIF file and matching it with UV coordinates we were able to get the correct pattern of colors.
+
+![The suzanne monkey from blender with a piece of cloth on its head.]({{ site.baseurl }}/assets/clothshader/2016-02-02-towelwithpattern.png)
+
+We still have a lot to do when it comes to actually shading the cloth in a realistic way, but this felt like a nice start to our project.
