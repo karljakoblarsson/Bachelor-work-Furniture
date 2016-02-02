@@ -21,4 +21,4 @@ baseurl: "/Bachelor-work-Furniture" # the subpath of your site, e.g. /blog
 url: "http://karljakoblarsson.com/" # the base hostname & protocol for your site
 
 # Build settings
-markdown: kramdown
+#markdown: kramdown

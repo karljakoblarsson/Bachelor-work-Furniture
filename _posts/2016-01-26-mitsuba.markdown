@@ -56,17 +56,17 @@ A BSDF can consist of several components. The `plastic` BSDF in Mitsuba is an ex
 For instance, a component can be flagged as describing diffuse reflection or glossy transmission. The purpose of these is to allow the artist to filter out specific types of materials when rendering.
 
 {% highlight c++ %}
-void serialize(Stream *stream) const {
+void serialize(Stream *stream) const;
 {% endhighlight %}
 The serialize method is, for us, still a bit unclear for what it is used for. We speculate it might be used to save the running program instance to disk or perhaps used with mitsubas networking capabilities.
 
 {% highlight c++ %}
-void addChild(const std::string &name, ConfigurableObject *child) {
+void addChild(const std::string &name, ConfigurableObject *child);
 {% endhighlight %}
 We do not know what this does.
 
 {% highlight c++ %}
-std::string toString() const {
+std::string toString() const;
 {% endhighlight %}
 And lastly a method to return a string representation of the shader together with any property-values
 
