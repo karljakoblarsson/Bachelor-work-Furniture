@@ -1,0 +1,29 @@
+---
+layout: post
+title:  "Reading!"
+author:  Peter
+date:   2016-01-30 09:29:54 +0100
+categories: clothshader
+---
+
+Since last time we have focused on writing the planning report and reading the following material. 
+
+* [Course notes: Background: Physics and Math of Shading](http://blog.selfshadow.com/publications/s2013-shading-course/hoffman/s2013_pbs_physics_math_notes.pdf)
+* [~~Understanding the Masking-Shadowing Function in Microfacet-Based BRDFs~~ (microfacet-modeling does not seem too prevelant in cloth related topics)](https://hal.inria.fr/hal-00942452v1/document)
+* [Specular Reflection from Woven Cloth](https://www.cs.cornell.edu/~srm/publications/TOG12-cloth.html)
+* [CS 348b Final Project: Cloth Rendering](https://graphics.stanford.edu/wikis/cs348b-09/lfyg/Final_Project_Writeup)
+* [Structure-aware Synthesis for Predictive Woven Fabric Appearance](https://www.mitsuba-renderer.org/~wenzel/papers/ctcloth-sg12.pdf)
+* [~~A Practical Microcylinder Appearance Model for Cloth Rendering~~ (broken link)](http://graphics.ucsd.edu/~henrik/papers/practical_microcylinder_appearance_model_for_cloth_rendering.pdf)
+
+From the "Background: Physcics and Math of Shading" I have gotten a good overview of the fundamentals of physically based shading and the methods that it involves. 
+
+From the remaining papers we have gotten a good overview of the different ways of implementing a good shader for woven cloth. Both methods using measued data and models derived purley from first-principles were presented. The paper "Structure-aware Synthesis for Predictive Woven Fabric Appearance" shows very impressive results, it uses micro-ct scans of a cloth with different weave pattern. The scans are cut and modified so that a repeating square of is isolated. This square is then reapated to create a detailed textile object. 
+
+On the other hand the paper "Specular Reflection from Woven Cloth" uses no measured data, except for verification and evaluation purposes, and the model is created from first principles. This we find very elegant and appealing and is something I think we both would like to strive for. This is a paper by Piti Irawan that was published in the siggraph journal, we think that this paper was adapted from Irawans Phd-thesis, which is also availbe online, which is longer and goes inte much more detail. Irawans paper and thesis are both invaluble resources for our project. 
+
+Irawans paper presents two shading models, one that only considers reflactance and one that generates a texutre. The reflectance only considers the averaged light reflectance and does not provide great detail, this is useful for when the cloth is small and not so prominent in a scene. For our use case we think that the texture model will be used almost exclusivly, therfore we should focus on this.
+
+# Next steps
+In the paper "Specular Reflection from Woven Cloth" by Irawan one of the first things that is done during the derivation is placing cylinders (representing yarn) in which the axis follows a curve. These cylinders are placed according to a specified pattern. We think a good next step is getting more aquainted with how weave patterns are defined and how we can define these for use in a shader. 
+
+Also, the planning report is due soon so work will also be focused on getting that finished. 
