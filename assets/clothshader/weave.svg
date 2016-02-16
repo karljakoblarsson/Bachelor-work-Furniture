@@ -9,14 +9,29 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="640px"
-   height="480px"
+   width="684.82196"
+   height="410.1875"
    id="svg2985"
    version="1.1"
    inkscape:version="0.48.5 r10040"
-   sodipodi:docname="New document 2">
+   sodipodi:docname="weave.eps">
   <defs
-     id="defs2987" />
+     id="defs2987">
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend"
+       style="overflow:visible">
+      <path
+         id="path3789"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -25,16 +40,20 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.5494505"
-     inkscape:cx="232.73024"
-     inkscape:cy="228.5357"
+     inkscape:cx="307.27114"
+     inkscape:cy="201.13566"
      inkscape:current-layer="layer1"
      inkscape:document-units="px"
      showgrid="true"
      inkscape:window-width="1416"
      inkscape:window-height="846"
-     inkscape:window-x="270"
-     inkscape:window-y="42"
-     inkscape:window-maximized="0">
+     inkscape:window-x="94"
+     inkscape:window-y="47"
+     inkscape:window-maximized="0"
+     fit-margin-top="80"
+     fit-margin-left="80"
+     fit-margin-right="80"
+     fit-margin-bottom="80">
     <inkscape:grid
        type="axonomgrid"
        id="grid2993"
@@ -42,7 +61,9 @@
        empspacing="5"
        visible="true"
        enabled="true"
-       snapvisiblegridlinesonly="true" />
+       snapvisiblegridlinesonly="true"
+       originx="5.7033209mm"
+       originy="-22.304375mm" />
   </sodipodi:namedview>
   <metadata
      id="metadata2990">
@@ -59,7 +80,8 @@
   <g
      id="layer1"
      inkscape:label="Layer 1"
-     inkscape:groupmode="layer">
+     inkscape:groupmode="layer"
+     transform="translate(20.208617,9.21875)">
     <path
        sodipodi:nodetypes="ccccc"
        inkscape:connector-curvature="0"
@@ -74,9 +96,10 @@
        sodipodi:nodetypes="ccccc" />
     <path
        style="fill:#ff0000;stroke:#ff0000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="M 322.20236,307.69291 92.057819,174.8189"
+       d="M 322.20236,311.69291 92.057819,178.8189"
        id="path3777"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
     <path
        style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        d="m 122.74376,249.68504 30.68594,-17.71654 15.34297,-26.5748 15.34297,8.85826 245.48751,-141.732275"
@@ -89,5 +112,51 @@
        id="path3775"
        d="m 214.80158,302.83465 30.68594,-17.71654 15.34297,-26.5748 15.34297,8.85826 245.48751,-141.73227"
        style="fill:none;stroke:#000000;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text
+       xml:space="preserve"
+       style="font-size:13px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="-41.304966"
+       y="237.97871"
+       id="text2996"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan2998"
+         x="-41.304966"
+         y="237.97871" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:13px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="475.63205"
+       y="205.39371"
+       id="text3000"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3002"
+         x="475.63205"
+         y="205.39371"
+         style="font-size:20px">Warps</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text3004"
+       y="169.96063"
+       x="107.40079"
+       style="font-size:13px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         style="font-size:20px"
+         y="169.96063"
+         x="107.40079"
+         sodipodi:role="line"
+         id="tspan3008">Weft</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1, 4;stroke-dashoffset:0;marker-end:url(#Arrow1Lend)"
+       d="M 322.20236,311.69291 61.371879,161.10236"
+       id="path4226"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1, 4;stroke-dashoffset:0;marker-end:url(#Arrow1Lend)"
+       d="M 245.48752,320.55118 583.03285,125.66929"
+       id="path4410"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
   </g>
 </svg>

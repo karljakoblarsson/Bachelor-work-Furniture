@@ -1,0 +1,26 @@
+---
+layout: post
+title:  "Bumps and normals"
+author:  Vidar & Peter
+date:   2016-02-16 09:29:54 +0100
+categories: clothshader
+---
+
+Work has progressed and we are finally at the point where we can render images that look like cloth!
+![Our test scene with shading]({{ site.baseurl }}/assets/clothshader/2016-02-16-maple.png)
+
+![Close up of our test scene with basic normal shading]({{ site.baseurl }}/assets/clothshader/2016-02-16-maple-closeup.png)
+
+What we have done since the last time is to use the normals that we calculated from the bent cylinders to perturb the shading normal of the surface. In other words, our shader now does the same thing that a bump- or normal map would do. It bends the normals on the surface to make it look like it's made up of woven threads.
+
+
+
+[comment]: <> (Kan vara bra med lite källor på dettta.)
+[comment]: <> (https://books.google.se/books?id=SshI5QYlgKMC&pg=PA14&lpg=PA14&dq=yarn+for+weaving+staple&source=bl&ots=MthpOEYrjS&sig=tykdUAtY-oGt0GVDKADznSCDDSY&hl=en&sa=X&ved=0ahUKEwi79MuGkPzKAhWkDZoKHex3B-MQ6AEIQTAG#v=onepage&q=yarn%20for%20weaving%20staple&f=false) 
+Yarn (we have, in error, called this thread before) that is used for weaving can be devided into two categories, filament yarn and staple yarn. For synthetic materials such as polyester the fibers are continuous and are called _filaments_. Multiple filaments can then be bundled together in order to give the filament yarn the desired size. A minimum amount of twisting is required so that the bundle sticks together. Synthetic filaments can be cut into smaller pieces called _staples_. Natural fibers, such as cotton, are usually already found in short staples. These staples are then spun and twisted resulting in so called _staple yarn_. ([more info](https://books.google.se/books?id=SshI5QYlgKMC&pg=PA14&lpg=PA14&dq=yarn+for+weaving+staple&source=bl&ots=MthpOEYrjS&sig=tykdUAtY-oGt0GVDKADznSCDDSY&hl=en&sa=X&ved=0ahUKEwi79MuGkPzKAhWkDZoKHex3B-MQ6AEIQTAG#v=onepage&q=yarn%20for%20weaving%20staple&f=false))
+
+An illustration showing the difference between the two yarn-types can be seen below.
+
+![Illustration of difference between fillament and staple yarns.]({{ site.baseurl }}/assets/clothshader/2016-02-16-staple_filament.png)
+
+At the moment, our model only uses the segments to perform rudimentary diffuse Lambert shading, our next step will be to implement the twisting nature of the yarns and then study and implement the specular shading model used in Irawan's paper. According to the paper, specular reflection is what gives cloth its characteristic look and we expect that including it will greatly improve the realism of our renders.
