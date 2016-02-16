@@ -9,7 +9,6 @@ categories: clothshader
 
 Our main hope is to get a shader implmented in V-ray. But after a bit of looking  we realized that working with Vray is a bit involved.
 Instead, as a start, we will try to use [Mitsuba][mitsuba] during the research and development phase since it is more academic and the source code is available and well documented.
-<!--more-->
 
 The public API can be found [here][mitsuba-api]
 
