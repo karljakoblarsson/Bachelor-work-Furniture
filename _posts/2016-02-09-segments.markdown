@@ -50,7 +50,7 @@ This transformation is an approximation and does not take into account forshorte
 In order to investigate the effect that these approximations make, we derive the transformation for a real bent cylinder, 
 
 \begin{align}
-        u &= 2 \frac{u_{max}}{\pi} \arcsin{(2\frac{y}{l})}   \\\
+        u &= \arcsin{(2\frac{y}{l}\sin(u_{max}))}   \\\
         v &= \arcsin{(2\frac{x}{w})}  
 \end{align}
 
