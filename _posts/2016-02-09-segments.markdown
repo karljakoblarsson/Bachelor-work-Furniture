@@ -55,7 +55,7 @@ In order to investigate the effect that these approximations make, we derive the
 
 We will continue to compare these two methods in our implementation, but as a first comparison we used these two mappings to displace a rectangular plane in Houdini. 
 
-![The mappings were used to displace a mesh, giving a clearer view of how the different transformations effect the shape. Left shows the coordinate transformation with simplifications as proposed by Irawan, Marschner. Right shows our transformations without simplifications and using expensive arcsin calls.]({{ site.baseurl }}/assets/clothshader/2016-02-09-mathThread.jpg)
+![The mappings were used to displace a mesh, giving a clearer view of how the different transformations effect the shape. Left shows the coordinate transformation with simplifications as proposed by Irawan, Marschner. Right shows our transformations without simplifications and using expensive arcsin calls.]({{site.baseurl }}/assets/clothshader/2016-02-09-mathThread.jpg)
 
 Left shows the coordinate transformation with simplifications as proposed by Irawan, Marschner. Right shows our transformation without simplifications, therby more closely resembling a bent cylinder, note that this mapping requires expensive `arcsin` calls.
 
