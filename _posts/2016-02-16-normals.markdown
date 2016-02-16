@@ -3,6 +3,7 @@ layout: post
 title:  "Bumps and normals"
 author:  Vidar & Peter
 date:   2016-02-16 09:29:54 +0100
+thumbnail: /assets/clothshader/2016-02-16-maple-thumbnail.png
 categories: clothshader
 ---
 

@@ -3,6 +3,7 @@ layout: post
 title:  "Thread segments"
 author:  Peter & Vidar
 date:   2016-02-09 09:29:54 +0100
+thumbnail: /assets/clothshader/2016-02-09-mathThread.jpg
 categories: clothshader
 ---
 

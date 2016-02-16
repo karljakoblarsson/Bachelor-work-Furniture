@@ -3,10 +3,15 @@ layout: post
 title:  "Mitsuba!"
 author:  Peter & Vidar
 date:   2016-01-26 09:29:54 +0100
+thumbnail: /assets/clothshader/2016-01-26-cbox.png
 categories: clothshader
 ---
 
-Our main hope is to get a shader implmented in V-ray. But after a bit of looking  we realized that working with Vray is a bit involved. Instead, as a start, we will try to use [Mitsuba][mitsuba] during the research and development phase since it is more academic and the source code is available and well documented. The public API can be found [here][mitsuba-api]
+Our main hope is to get a shader implmented in V-ray. But after a bit of looking  we realized that working with Vray is a bit involved.
+Instead, as a start, we will try to use [Mitsuba][mitsuba] during the research and development phase since it is more academic and the source code is available and well documented.
+<!--more-->
+
+The public API can be found [here][mitsuba-api]
 
 As a first step we thought that investigating how Mitsuba shaders are implemented would be a good method of getting aquainted with the software. 
 
