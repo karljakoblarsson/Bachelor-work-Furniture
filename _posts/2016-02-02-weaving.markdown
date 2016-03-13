@@ -4,6 +4,7 @@ title:  "Weaving!"
 author:  Vidar & Peter
 date:   2016-02-02 12:04:03 +0100
 categories: clothshader
+thumbnail: /assets/clothshader/2016-02-02-towelwithpattern.png
 ---
 
 # Weaving data
