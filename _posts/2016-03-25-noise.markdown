@@ -1,0 +1,51 @@
+---
+layout: post
+title:  "Noise - intensity variation"
+author:  Peter
+date:   2016-03-25 17:29:54 +0100
+categories: clothshader
+thumbnail: /assets/clothshader/yarn_segment.png
+---
+
+Since real fabrics are not perfect a bit of variation add a lot of realism to the material.
+
+I implemented a variation factor that uses some of the coordinates discussed in the pervious post to generate random a factor that varies the intensity of the specular highlights. With this a fineness parmater is used to adjust the density of varaition. The existing irawan implementation included in mitsuba was used as a reference. It took a lot of fiddeling with the coordinates and variables in order to get the numbers used to generate the random variables. Also, since that implementation treates the pattern representation a bit differently to how we do it some changes had to be made.
+
+New variables had to be defined. The absolute x and y positions in pattern scale.
+{% highlight c++ %}
+uint32_t total_x = its.uv.x*m_uscale*m_pattern_width;
+uint32_t total_y = its.uv.y*m_vscale*m_pattern_height;
+{% endhighlight %}
+
+With this the variation can be calculated:
+
+{% highlight c++ %}
+float intensityVariation(PatternData pattern_data) const {
+  //absolute position for start of yarn segment
+  float startx = total_x_ - pattern_data.x*pattern_data.width;
+  float starty = total_y - pattern_data.y*pattern_data.length;
+
+  //absolute position for center of yarn segment
+  float centerx = startx + pattern_data.width/2.0;
+  float centery = starty + pattern_data.length/2.0;
+
+  uint32_t r1 = (uint32_t) ((centerx + pattern_data.total_x) 
+          * m_intensity_fineness);
+  uint32_t r2 = (uint32_t) ((centery + pattern_data.total_y) 
+          * m_intensity_fineness);
+        
+  float xi = sampleTEAFloat(r1, r2, 8);
+  return std::min(-math::fastlog(xi), (Float) 10.0f);
+}       
+{% endhighlight %}
+
+Results:
+
+![Close-up of pattern with and without noise.]({{ site.baseurl }}/assets/clothshader/2016-03-25-comparecloseup.gif)
+
+It looks a bit rough and the values used are quite arbitrary. But since this the average of the nease should be 0, this effect only has an cosmetic effect and should not effect any physical correcteness of the underlying model.
+
+![Example of cloth with and without noise.]({{ site.baseurl }}/assets/clothshader/2016-03-25-clothnoise.gif)
+
+
+
