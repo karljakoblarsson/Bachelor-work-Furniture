@@ -7,9 +7,9 @@ categories: clothshader
 thumbnail: /assets/clothshader/2016-03-25-comparecloseup.gif
 ---
 
-Since real fabrics are not perfect a bit of variation add a lot of realism to the material.
+Since real fabrics are not perfect a bit of variation can add a lot of realism to the apperance of the material.
 
-I implemented a variation factor that uses some of the coordinates discussed in the pervious post to generate random a factor that varies the intensity of the specular highlights. With this a fineness parmater is used to adjust the density of varaition. The existing irawan implementation included in mitsuba was used as a reference. It took a lot of fiddeling with the coordinates and variables in order to get the numbers used to generate the random variables. Also, since that implementation treates the pattern representation a bit differently to how we do it some changes had to be made.
+I implemented a variation factor that uses some of the coordinates discussed in the pervious post to generate a random a factor that varies the intensity of the specular highlights. With this a "fineness" parmater is used to adjust the density of varaition. The existing irawan implementation included in mitsuba was used as a reference. It took a lot of fiddeling with the coordinates and variables in order to get the numbers used to generate the random variables in a correct fashion. Also, since the built in mitsuba implementation treates the pattern representation a bit differently from how we do it some changes had to be made.
 
 New variables had to be defined. The absolute x and y positions in pattern scale.
 {% highlight c++ %}
@@ -17,7 +17,7 @@ uint32_t total_x = its.uv.x*m_uscale*m_pattern_width;
 uint32_t total_y = its.uv.y*m_vscale*m_pattern_height;
 {% endhighlight %}
 
-With this the variation can be calculated:
+With this the variation can be calculated, where `sampleTEAFloat` is a built in mitsuba function which will need to be replaced with something else or reimplemented in order for this work to be  used in another rendering enegine. Looking ahead this is something i will have to investigate.
 
 {% highlight c++ %}
 float intensityVariation(PatternData pattern_data) const {
@@ -43,7 +43,7 @@ Results:
 
 ![Close-up of pattern with and without noise.]({{ site.baseurl }}/assets/clothshader/2016-03-25-comparecloseup.gif)
 
-It looks a bit rough and the values used are quite arbitrary. But since this the average of the nease should be 0, this effect only has an cosmetic effect and should not effect any physical correcteness of the underlying model.
+It looks a bit rough and the values used are quite arbitrary. But since the average of the noise should be 0, this only has an cosmetic effect and should not effect any physical correcteness of the underlying model.
 
 ![Example of cloth with and without noise.]({{ site.baseurl }}/assets/clothshader/2016-03-25-clothnoise.gif)
 
