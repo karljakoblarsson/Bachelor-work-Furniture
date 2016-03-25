@@ -4,7 +4,7 @@ title:  "Noise - intensity variation"
 author:  Peter
 date:   2016-03-25 17:29:54 +0100
 categories: clothshader
-thumbnail: /assets/clothshader/yarn_segment.png
+thumbnail: /assets/clothshader/2016-03-25-comparecloseup.gif
 ---
 
 Since real fabrics are not perfect a bit of variation add a lot of realism to the material.
