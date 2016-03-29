@@ -4,7 +4,7 @@ title:  "The current state of the OptiX renderer"
 author:  Jonatan and Victor
 date:   2016-03-29 16:00:00 +0200
 categories: renderer
-thumbnail: /assets/renderer/2016-03-29-Ko.gif
+thumbnail: /assets/clothshader/2016-01-26-cbox.png
 ---
 
 
