@@ -43,9 +43,30 @@ Results:
 
 ![Close-up of pattern with and without noise.]({{ site.baseurl }}/assets/clothshader/2016-03-25-comparecloseup.gif)
 
-It looks a bit rough and the values used are quite arbitrary. But since the average of the noise should be 0, this only has an cosmetic effect and should not effect any physical correcteness of the underlying model.
+It looks a bit rough and the values used are quite arbitrary.  
+
+
+<del>But since the average of the noise should be 0, this only has an cosmetic effect and should not effect any physical correcteness of the underlying model.</del>
+
+UPDATE (2016-03-30): Sorry, previous sentence is wrong and not true. New attempt... The random numbers `xi` are between 0 and 1, thus values from `-math::fastlog(xi)` can range from 0 to inf. \\(X = xi \\) is a uniformly distributed random variable on the interval [0,1]. 
+
+The expected value is given by
+\begin{equation}
+  E[-log(X)] = \int_{-\infty}^{\infty} -log(x) f_X(x) dx = \int_{0}^{1} -log(x) dx = 1 
+\end{equation}
+
+The expected value will be 1. In the code `std::min(-math::fastlog(xi), (Float) 10.0f)` we limit the value to be below 10. But the distribution remains the same and does not affect the expected value.
+
+A quick test in matlab demonstrates this,
+{% highlight matlab %}
+values = min(-log(rand(10000,1)), 10);
+mean_res = sum(values)/length(values)
+
+> mean_res =
+      1.0100
+{% endhighlight %}
+
+
+Therfore on average the intensity will remain and this noise variation should not effect any physical correcteness of the underlying model.
 
 ![Example of cloth with and without noise.]({{ site.baseurl }}/assets/clothshader/2016-03-25-clothnoise.gif)
-
-
-
