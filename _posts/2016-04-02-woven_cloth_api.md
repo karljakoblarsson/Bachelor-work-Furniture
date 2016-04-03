@@ -2,7 +2,7 @@
 layout: post
 title:  "Woven cloth general API"
 author:  Vidar
-date:   2016-04-02 10:56:54 +0100
+date:   2016-04-02 02:03:00 +0100
 thumbnail: /assets/clothshader/2016-04-02-api.png
 categories: clothshader
 ---
