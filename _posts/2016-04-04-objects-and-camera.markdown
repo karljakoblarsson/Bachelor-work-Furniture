@@ -4,14 +4,14 @@ title:  "Importing objects and a cartesian camera"
 author:  Jonatan and Victor
 date:   2016-03-29 16:00:00 +0200
 categories: renderer
-thumbnail: /assets/renderer/2016-03-29-Ko.gif
+thumbnail: /assets/renderer/2016-04-04-rusty-glass.png
 ---
 
 ###Loading object files into the scene
 
 Utilizing the ObjLoader function found in the sutil project, we can easily import objects into our scene, given that it is the only object present in the scene at any given time, so loading a new object will take the old objects place. In order to import several objects at once, we will look closer at the sample project "glass", as it utilizes a similar procedure to import an object into he scene.
 
-INSERT PICTURE OF RUSTY GLASS HERE
+![Rendered glass with rusty metal material]({{ site.baseurl }}/assets/renderer/2016-04-04-rusty-glass.png)
 
 As can be seen in the picture above, a glass has been imported into the scene, with the material coming from the tutorial box. An object can be made out of any material; the material simply needs to be defined beforehand.
 
