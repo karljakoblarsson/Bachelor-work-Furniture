@@ -4,7 +4,7 @@ title:  "Wrong Turns with Rattan"
 author:  Jakob
 date:   2016-04-10 20:03:00 +0100
 thumbnail: /assets/rattan/turns.png
-categories: clothshader
+categories: rattan
 ---
 
 ![Example of or geometry]({{ site.baseurl }}/assets/rattan/turns.png)
