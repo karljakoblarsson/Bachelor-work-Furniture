@@ -28,5 +28,6 @@ When these issues were taken care of, the only thing that remained was implement
 
 The screenshot below shows the cloth shader running inside the OptiX raytracer.
 
+![A piece of cloth on a chair]({{ site.baseurl }}/assets/clothshader/2016-04-24-cloth_on_chair.png)
 
 The only remaining problem is that there is quite a lot of high-frequency details in the cloth, which would benefit from more subsampling. Perhaps it is possible to do this directly in the shader, by sampling it several times for each hit, if we add ray derivatives to the raytracer. This does however feel like it is outside the scope of out current project and I belive the implementation is a nice proof-of-concept even as it is.
