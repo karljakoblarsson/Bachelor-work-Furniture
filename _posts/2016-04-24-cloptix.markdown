@@ -1,0 +1,32 @@
+---
+layout: post
+title:  "Integrating the cloth shader into OptiX"
+author:  Vidar
+date:   2016-04-23 02:03:00 +0100
+thumbnail: /assets/clothshader/2016-04-24-cloth_on_chair.png
+categories: clothshader
+---
+Last week I mainly focused on two things: writing the report and integrating the cloth shader with the OptiX renderer, which was something that we planned on doing right from the start, but we were never really certain that it was actually going to work.
+After having spent some time with it, however, I am happy to report that the integration worked great.
+
+Since the code for the cloth shader was written i C, it compiled as Cuda straight away. There was just two small additions that had to be made in order for it to work with OptiX. The first was to allow the user to skip all the file loading functions, since these won't work on the GPU. This was done by simply adding the option to define WC_NO_FILES before loading the library. Doing this makes sure that any function that accesses the hard drive doesn't get compiled.
+
+The second addition was to add __device__ in front of all functions, to make Cuda recognize them as functions to be run on the device. This was done by appending a macro, WC_PREFIX, to all functions. The macro normally just expands to nothing, but it can be redefined prior to loading the library.
+
+{% highlight c++ %}
+#define WC_NO_FILES
+#define WC_PREFIX __device__
+#include "woven_cloth.cpp"
+{% endhighlight %}
+The above snippet was all that was needed to include the cloth shader into our Cuda file. Note that we include the actual source file and not just the header, since we want the functions to be compiled right there in the cuda file.
+
+Just as when we did the implementation in V-Ray and Mitsuba, the only thing that needs to be done in order to get the shader up and running is to define an instance of wcWeaveParameters, fill it out with the desired parameters, and call the functions that evaluate the BRDF.
+The tricky part here was loading the pattern and sending it to the shader, since the loading had to be done on the CPU, when creating the scene. This however turned out to be easier than expected. When initializing the scene, the pattern was loaded as usual and sent to the shader using the optix function setUserData.
+Care had to be taken, however, since one of the members is a dynamically allocated array indicating colors and structure of the weave. This array had to be sent separately as the pointer would not otherwise have pointed to the correct location.
+
+When these issues were taken care of, the only thing that remained was implementing the actual shader. This consisted of transforming the incident and exitant directions into the shading space used by the cloth shader and calling the required functions. This coordinate space is defined to have \(z\) pointing along the normal, while \(x\) and \(y\) point along \(\partial P/\partial u\) and  \(\partial P/\partial v\), respectively. These derivatives were not available in OptiX and had to be calculated manually. Adding them was not a big problem, however.
+
+The screenshot below shows the cloth shader running inside the OptiX raytracer.
+
+
+The only remaining problem is that there is quite a lot of high-frequency details in the cloth, which would benefit from more subsampling. Perhaps it is possible to do this directly in the shader, by sampling it several times for each hit, if we add ray derivatives to the raytracer. This does however feel like it is outside the scope of out current project and I belive the implementation is a nice proof-of-concept even as it is.
