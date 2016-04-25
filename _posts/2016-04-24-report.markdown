@@ -1,0 +1,18 @@
+---
+layout: post
+title:  "Report work."
+author:  Peter
+date:   2016-04-24 02:03:00 +0100
+categories: clothshader
+---
+
+For me, this week and the previous week has been dominated by putting in content into the report (and some meetings). The hope was to have has much in as possible before our writing consultation session at the library due on Thursday next week.
+
+The introduction part of the report feels pretty finished.
+The hope was that the method part for the different sub-projects would be done by Tuesday at the beginning of this week. At the time of writing I am fairly happy with the state of the cloth-shader part of the report. The content is there, but some of it might need to be moved or in need of some restructuring. Will know better once we have gotten feedback from our session on Thursday.
+
+Otherwise an early effort at trying to recreate some of the real cloth samples was made. Although I did not manage to help very much in this since I had some issues getting the vray plugin back into a working state and spent some time on that. Turns out I made an extremely trivial mistake... 
+
+I also made minor changes to the vray plugin to add the yarnVariation parameters to the plugin interface, so that these features can be used for recreating the samples, should they be needed. 
+
+The plan for next week is getting some results and putting them into the report.
